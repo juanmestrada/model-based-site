@@ -1,0 +1,854 @@
+/**
+ * BOX-SIZING
+ */
+@font-face { font-family: Marker; src: url('dwerneck.TTF'); } 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/**
+ * GRIDS
+ */
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    > * {
+        flex: 1;
+        flex-basis: 100%;
+    }
+}
+
+@define-mixin grid_r $col, $width {
+    @media only screen and (min-width: $(width)px) {
+        .grid-$(col)-$(width) {
+            & > * {
+                flex-basis: calc(100 / $col)%;
+            }
+            @mixin-content;
+        }
+    }
+}
+
+@define-mixin grid $col {
+    .grid-$(col) {
+        & > * {
+            flex-basis: calc(100 / $col)%;
+        }
+        @mixin-content;
+    }
+}
+
+@mixin grid 2 {}
+@mixin grid 4 {}
+@mixin grid 6 {}
+
+@mixin grid_r 2, 400 {}
+@mixin grid_r 2, 800 {}
+
+@mixin grid_r 4, 400 {}
+@mixin grid_r 4, 800 {}
+
+/**
+ * PACE (automatic pre-loader thingy)
+ */
+
+.pace {
+    pointer-events: none;
+    user-select: none;
+    transition: all 1s ease;
+    .pace-progress {
+        background: #2299dd;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        height: 2px;
+        transition: all 1s ease;
+    }
+}
+
+.pace-inactive {
+    opacity: 0;
+}
+
+.pace-active {
+    opacity: 1;
+}
+/**
+ * GENERAL
+ */
+
+img {
+    max-width: 100%;
+}
+
+/*html { overflow-y: hidden; }*/
+
+body{
+	margin: 0;
+	padding: 0;
+}
+.main-video{
+	position: fixed;
+	right: 0;
+	top: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: 100vh;
+	height: 100vh;
+	z-index: -999;
+	background:url(./images/ginagun2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.bgvideo{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translate(-50%, -50%);
+
+}
+
+p{
+	color:white;
+	
+}
+.scroll-fixed{
+	position: fixed;
+	bottom: 50px;
+	left: 50%;
+	z-index: -99;
+}
+
+.scroll-wrap{
+	width: 80px;
+	height: 80px;
+	background: url(./images/scrollwhite.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: 3px solid white;
+	border-radius: 50%;
+}
+
+.scroll-img{
+	width: 90%;
+	margin: auto;
+}
+
+.middle-container{
+	/*background: url(.//images/ginaspiderman.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;*/
+	width: 100%;
+	height: auto;
+	margin-top: 100vh;
+	background-color: black;
+	overflow: auto;
+}
+header{
+	width: 100%;
+	height: 80px;
+	text-align: -webkit-center;
+	z-index: 99;
+}
+#logo_img{
+	width: 28%;
+	height: 80px;
+	background: url(./images/ginasign.png);
+	background-repeat: no-repeat;
+	background-size: 65% 110%;
+	background-position: center;
+	transition: all 2s linear;
+}
+ul{
+	list-style: none;
+	font-size: 26px;
+	color: white;
+	margin: 0;
+	overflow: auto;
+	padding: 0;
+}
+
+li{
+	float: left;
+	width: 18%;
+	line-height: 2;
+}
+
+.header-main:hover{
+	border-top: 5px solid #a702c4;
+	color: purple;
+}
+
+li>a:hover{
+	color: #a702c4;
+
+}
+
+a{
+	color: #a702c4;
+	text-decoration: none;
+	font-size: 30px;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.btn{
+	width: 50px;
+	height: 50px;
+	margin-left: 35px;
+    margin-top: 5px;
+}
+
+#full-menu{
+	display: block;
+	position: absolute;
+	left: -475px;
+	top: 0;
+	width:475px;
+	height: 900px;
+	margin-top: 50px;
+	padding-top: 50px;
+	background:rgba(0,0,0,.95);
+	z-index: 98;
+}
+#full-menu>li{
+	width: 100%;
+	
+}
+
+#full-menu li:hover{
+
+	background-color: #a702c4;
+	color: black;
+}
+
+#full-menu a:hover{
+
+	
+	color: black;
+}
+
+
+.video-overlay{
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	min-width: 100%;
+	height: 100vh;
+	margin: 0 auto;
+	background: url(./images/gina-overlay.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: .7;
+}
+
+.section{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+}
+
+#image{
+	
+	height: 100%;
+	
+}
+
+
+#info{
+	position: absolute;
+}
+
+.info_text{
+	border: 1px solid white;
+	padding: 10px;
+}
+/*Model Section */
+#model{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	background: url(./images/gina_face.png);
+	background-repeat: no-repeat;
+	background-size: 100% 110%;
+}
+/*
+.model{
+	width: 60%;
+	height: 100%;
+	background: url(./images/gina_facetrnc2.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	float: left;
+}*/
+.model_info{
+	bottom: 20px;
+	right: -600px;
+	width: 40%;
+	height: 80%;
+	margin: 0;
+	transition: all 250ms linear;
+}
+
+#model-name{
+	transition-property: all;
+    transition-duration: 0ms;
+    transform: matrix(0.575735, 0, 0, 0.575735, -59.3971, -122.5);
+    transform: scale(2,2);
+}
+
+.ms{
+	font-size: 160px;
+	font-family: 'Vidaloka', serif;
+	color: #a702c4;
+    opacity: 0;
+    text-shadow: -15px -10px black;
+    transform: scale(2);
+}
+
+#m1{
+	transition-property: all; 
+	transition-duration: 2s; 
+	
+	opacity: 0;
+}
+
+#m2{
+	transition-property: all; 
+	transition-duration: 500ms; 
+	
+	opacity: 0;
+}
+
+#m3{
+	transition-property: all; 
+	transition-duration: 2s; 
+
+	opacity: 0;
+}
+
+#m4{
+	transition-property: all; 
+	transition-duration: 800ms; 
+	
+	opacity: 0;
+}
+
+#m5{
+	transition-property: all; 
+	transition-duration: 100ms; 
+	opacity: 0;
+}
+
+#model-name{
+	position: absolute;
+	bottom: 100px;
+	right: 100px;
+	width: 400px;
+	height: 100px;
+}
+
+/*Dancer Section*/
+
+#dancer{
+	display: block;
+	width: 100%;
+	height: 100vh;
+	background: url(./images/bluebackground.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}	
+
+.dancer{
+	position: absolute;
+	top: -300px;
+	right: 0;
+	width: 70%;
+	height: 1000px;
+	background: url(./images/ginabluetrnc.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	float: right;
+}
+
+.dancer_info{
+	width: 30%;
+	bottom: 65px;
+	left: -450px;
+	transition: all 250ms linear;
+}
+
+.dancer-name{
+	position: absolute;
+	bottom: 120px;
+	left: 450px;
+}
+
+.ds{
+	font-size: 110px;
+	font-family: 'Vidaloka', serif;
+	color: #a702c4;
+    opacity: 1;
+    text-shadow: 9px 6px black;
+    transform: scale(2);
+}
+
+/*actor*/
+
+#actor{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100vh;
+	background-color: white;
+	overflow: hidden;
+}
+
+.actor{
+	position: absolute;
+	top: 900px;
+	left: 0;
+	width: 50%;
+	height: 1000px;
+	float: left;
+	background: url(./images/gina_cameratrnc.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+}
+
+.actor_info{
+	position: absolute;
+	width: 40%;
+	height: 80%;
+	bottom: -500px;
+	right: 50px;
+	transition: all 1s linear;
+}
+
+.act_info{
+	color: black;
+	padding: 10px;
+}
+
+.act_info>p{
+	color: black;
+}
+
+.actor-name{
+	position: absolute;
+	bottom: 100px;
+	right: 100px;
+	width: 350px;
+	height: 100px;
+}
+
+.as{
+	font-size: 100px;
+	font-family: 'Vidaloka', serif;
+	color: #a702c4;
+	transition-property: all;
+    transition-duration: 300ms;
+    transform: scale(1);
+    opacity: 1;
+    text-shadow: -5px -2px black;
+}
+
+/*Gamer Section*/
+
+#gamer{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+}
+
+.gamer{
+	width: 60%;
+	height: 100%;
+	background: url('./images/gina-gamer.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	float: left;
+}
+
+.gamer_info{
+	display: none;
+	bottom: -20px;
+	right: 175px;
+	width: 30%;
+	height: 70%;
+	transition: all 250ms linear;
+}
+
+.gamer-name{
+	position: absolute;
+	bottom: 115px;
+	right: 75px;
+}
+
+.gs{
+	font-size: 100px;
+	font-family: 'Vidaloka', serif;
+	color: #a702c4;
+    opacity: 0;
+    text-shadow: -5px -2px black; 
+}
+
+/*Contact Section*/
+
+#contact{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url("./images/ginabackground.png");
+	background-repeat: repeat;
+	/*background-attachment: fixed !important;*/
+	background-size: cover;
+	padding-top: 80px;
+	padding-bottom: 120px;
+	
+}
+
+form{
+	width: 30%;
+	height: 80%;
+	margin: 0 auto;
+	opacity: 0;
+    transition-property: all;
+    transition-duration: 2s;
+    transform: scale(1);
+}
+
+input{
+	width: 100%;
+    background: none;
+    padding-left: 17px;
+    color: black;
+	height: 51px;
+    border: 1px solid #f0f0f0;
+    font-family: 'pt_sansbold';
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+textarea{
+	color: black;
+	width: 100%;
+	background: none;
+	border: 1px solid #f0f0f0;
+	padding-left: 17px;
+}
+
+.submit{
+	font-family: 'pt_sansbold';
+    color: #000000;
+    font-size: 14px;
+    float: right;
+    border: 1px solid #111111;
+    padding: 0;
+    text-transform: uppercase;
+    width: 48%;
+    text-decoration: none;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+h3{
+	
+	text-align: center;
+	font-size: 14px;
+    font-family: 'charter_btroman';
+	color: white;
+}
+
+h1{
+	text-align: center;
+	font-size: 40px;
+    line-height: 62px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: #a702c4;
+    text-transform: uppercase;
+}
+span.line-lt{
+	position: absolute;
+    top: 17px;
+    left: -65px;
+	background: url(./images/line.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 25px;
+	width: 138px; 
+	transition-property: all; 
+	transition-duration: 500ms; 
+	transform: scale(1, 1);
+}
+
+span.line-rt{
+	position: absolute;
+    top: 17px;
+    left: 365px;
+	background: url(./images/line.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 138px; 
+	transition-property: all; 
+	transition-duration: 500ms; 
+	transform: scale(1, 1);
+}
+/*
+span{
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	float: right;
+	color: white;
+}
+*/
+
+.loading{
+	position: absolute;
+	bottom: 20px;
+	left: 120px;
+	width: 200px;
+
+	height: 200px;
+	background: url('loading.png');
+	background-repeat: no-repeat;
+	background-image: contain;
+}
+#ad-wrapper{
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0,0,0,.97);
+	z-index: 99;
+	transition: all 250ms linear;
+}
+#ad{
+	position: relative;
+	margin: 0 auto;
+	width: 70%;
+	height: 80%;
+	margin-top: 60px;
+	background: url(./images/gina-ad.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+#close-btn{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 35px;
+	height: 35px;
+	background: url(./images/x-icon.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#close-btn:hover{
+	cursor: pointer;
+}
+
+#ad > span{
+	position: absolute;
+	bottom: 50px;
+	left: 43%;
+	border: 1px solid white;
+	color: white;
+	font-size: 32px;
+	padding-top: 5px 10px;
+}
+
+#ad > span > a{
+	text-decoration: none;
+	color: white;
+	line-height: 1.5;
+	padding: 10px;
+}
+
+textarea:focus, input:focus {
+	outline: none !important;
+    border:1px solid #a702c4;
+    box-shadow: 0 0 10px #a702c4;
+    color: black;
+}
+
+
+.submit{
+	cursor: pointer;
+}
+
+.submit:hover{
+	background-color: #a702c4;
+}
+
+input::-webkit-input-placeholder {
+color: black !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: black !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: black !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: black !important;  
+}
+
+textarea::-webkit-input-placeholder {
+color: black !important;
+}
+ 
+textarea:-moz-placeholder { /* Firefox 18- */
+color: black !important;  
+}
+ 
+textarea::-moz-placeholder {  /* Firefox 19+ */
+color: black !important;  
+}
+ 
+textarea:-ms-input-placeholder {  
+color: black !important;  
+}
+
+
+.dust{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background: url(./images/dust.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+#dust-1{
+	top: 500px;
+	right: 430px;
+	opacity: .6;
+}
+#dust-2{
+	top: 50px;
+	right: 140px;
+	opacity: .5;
+}
+#dust-3{
+	top: 690px;
+	right: 50px;
+	opacity: .4;
+}
+
+/*
+.test{
+	width: 300px;
+	height: 600px;
+	background: url(./images/test.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}*/
+
+/*Shedule Page*/
+
+#schedule-wrapper{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(./images/gina-mirror.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+
+#schedule-text{
+	position: absolute;
+	top: 35px;
+	left: 30px;
+
+}
+
+.typed-text{
+	color: #de0f0d;
+	font-family: 'Marker', sans-serif;
+	font-size: 28px;
+	margin: 0;
+	-ms-transform: rotate(-2deg); /* IE 9 */
+    -webkit-transform: rotate(-2deg); /* Safari */
+    transform: rotate(-2deg);
+    opacity: 0;
+    
+}
+
+#st1{
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	transition-delay: 500ms;
+}
+
+#st2{
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	transition-delay: 1s;
+}
+
+
+#st3{
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	transition-delay: 1.5s;
+}
+
+
+#st4{
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	transition-delay: 2s;
+}
+
+
+#st5{
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	transition-delay: 2.5s;
+}
