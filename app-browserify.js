@@ -1,4 +1,4 @@
-
+console.log('Like What You See? Lets work together.')
 
 $(function(){
         // Check the initial Poistion of the Sticky Header
@@ -12,7 +12,6 @@ $(function(){
             } else {
                 $('#header').css({position: 'static', top: '0px'});
 				$('#logo_img').css('backgroundSize','65% 110%');
-
             }
 
         });
@@ -24,7 +23,6 @@ $(function(){
 		    	$('header').css('left', '0')
 				$('#full-menu').css({'left':'-475px'});
 				$('.section').css('left', '0');
-				console.log('first if statement, menu should be closed')
 				$('body').css('overflow','auto');
 				menuVisible = false;
 				return;
@@ -33,8 +31,7 @@ $(function(){
 		    $('#full-menu').css('left','-280px');
 		    $('.section').css('left', '475px');
 		    $('body').css('overflow','hidden');
-		    
-		    console.log('outside first if statement, menu should be open');
+		    $('.middle-container').css('overflow-x','hidden');
 		    menuVisible = true;
 		    
 		});
@@ -72,7 +69,6 @@ $(function(){
 		    	$('#m3').css({transitionProperty: 'all', transitionDuration: '2s', transform: 'scale(1)', opacity:'1'});
 		    	$('#m4').css({transitionProperty: 'all', transitionDuration: '600ms', transform: 'scale(1)', opacity:'1'});
 		    	$('#m5').css({transitionProperty: 'all', transitionDuration: '3s', transform: 'scale(1)', opacity:'1'});
-		        console.log("Model is at the top of the screen")
 		    }
 		    if(!($window.scrollTop() >= model)){
 		    	$('.model_info').css('right', '-600px');
@@ -81,20 +77,14 @@ $(function(){
 		    }
 		    //Dancer Section
 		    if ( $window.scrollTop() >= (dancer - 650)) {
-		        
 		        $('.dancer_info').css('left', '100px')
-		        console.log("Dancer is at the top of the screen")
 		    }
-		    if ( !($window.scrollTop() >= dancer) ) {
-		        
+		    if ( !($window.scrollTop() >= dancer) ) {      
 		        $('.dancer_info').css('left', '-500px')
-		        console.log("Dancer is at the top of the screen")
 		    }
 		    //Actor Section
-		    if ( $window.scrollTop() >= actor ) {
-		        
+		    if ( $window.scrollTop() >= actor ) {    
 		        $('.actor_info').css('bottom', '10px')
-		        console.log("Actor is at the top of the screen")
 		    }
 
 		    if(!($window.scrollTop() >= actor)){
@@ -110,7 +100,11 @@ $(function(){
 		    	$('#g4').css({transitionProperty: 'all', transitionDuration: '3s',  opacity:'1'});
 		    	$('#g5').css({transitionProperty: 'all', transitionDuration: '400ms',  opacity:'1'});
 		    	$('#gamer .info-text').css({'borderTop': '1px solid white', })
-		        console.log("Gamer is at the top of the screen")
+		    	if(screen.width < 480) { 
+				    // do any 480 width stuff here, or simply do nothing
+				    $('.gamer_info').css('display', 'none');
+				    
+				}
 		    }
 
 		    if ( !($window.scrollTop() >= gamer) ) {
@@ -123,16 +117,12 @@ $(function(){
 		    }
 		    //Contact section 
 		    if ( $window.scrollTop() >= (contact - 150)) {
-		        
 		        $('#contact > form').css('opacity', '1')
-		        console.log("contact section is at the top of the screen")
 		    }
 
 		    if ( !($window.scrollTop() >= (contact - 150))) {
-		     
-
 		        $('#contact > form').css('opacity', '0')
-		        console.log("contact section is at the top of the screen")
+
 		    }
 
 
@@ -154,14 +144,12 @@ $(function(){
 		   $('body').css('overflow', 'auto')
 		});
 
-	}, 20000);
+	}, 10000);
 	
 
  });
 
 $(document).ready(function(){
-
-  	console.log("juery is working")
         $(window).scroll(function() {
             var parallax = $(this).scrollTop();
 
@@ -172,9 +160,5 @@ $(document).ready(function(){
             $('#dust-3').css('transform', 'translate(0px, -'+ parallax / 7 + '%)')
             //$('.as').css('textShadow', 'black -5px -' + parallax / 220 + 'px')
             
-        });
-        
-        
-
-        
+        }); 
 })

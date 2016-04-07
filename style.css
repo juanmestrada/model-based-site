@@ -279,7 +279,7 @@ a{
 
 .info_text{
 	border: 1px solid white;
-	padding: 10px;
+	padding: 30px;
 }
 /*Model Section */
 #model{
@@ -851,4 +851,237 @@ color: black !important;
 	transition-duration: 1s;
 	transition-timing-function: ease;
 	transition-delay: 2.5s;
+}
+
+/*medium*/
+@media screen and (max-width: 800px){
+
+#info p{
+	color: red;
+}
+
+#model{
+	height: 75vh;
+	background-size: 100% 100%;
+
+
+}
+
+#model-name{
+	bottom: 0px;
+    right: 30%;
+    width: 100%;
+    height: 125px;
+}
+
+.model-info{
+	bottom: 20px;
+    right: -600px;
+    width: 40%;
+    height: 80%;
+}
+
+.model_info p{
+	color: red;
+}
+
+.dust{
+	width: 80px;
+	height: 80px;
+	background-size: contain;
+}
+
+#dust-1{
+	top: 245px;
+	right: 130px;
+}
+
+#dust-2{
+
+}
+
+#dust-3{
+
+}
+
+#dancer{
+	height: 75vh;
+}
+
+.dancer{
+	top: -50%;
+	background-size: 100% 50%;
+}
+.dancer-name{
+	width: 100%;
+	bottom: 20px;
+    left: 30%;
+}
+.dancer_info{
+	width: 45%;
+    bottom: 30%;
+}
+#gamer{
+	height: 75vh;
+}
+.gamer_info{
+	bottom: 10%;
+    right: 20px;
+    width: 55%;
+}
+.gamer-name{
+	width: 100%;
+	bottom: -10px;
+    right: 238px;
+}
+#actor{
+	height: 75vh;
+}
+
+.actor{
+	top:73%;
+	height: 120%;
+}
+
+.actor-name{
+	width: 100%;
+	bottom: -20px;
+    right: -50px;
+}
+.ms{
+	font-size: 125px;
+}
+.ds{
+	font-size: 80px;
+}
+.gs{
+	font-size: 80px;
+}
+.as{
+	font-size: 80px;
+}
+}
+
+/*mobile*/
+@media screen and (max-width: 480px){
+
+.header-main a{
+	display: none;
+}
+
+#logo_img{
+	display: none;
+}
+.btn{
+	margin-left: 0;
+	width: 50px;
+    height: 50px;
+}
+
+li a{
+	display: block;
+	width: 50%;
+	font-size: 20px;
+	text-align: left;
+}
+#info{
+	display: none;
+}
+#model{
+	background-size: cover;
+}
+#model-name{
+	bottom: 35%;
+	right:5%;
+}
+#dust-1{
+	top: 465px;
+	right: 60px;
+}
+#dust-2{
+	right: -35px;
+}
+#dust-3{
+	top: 280px;
+    left: 0px;
+}
+.dancer-name{
+	width: 100%;
+	left: 10%;
+	bottom: 40%;
+}
+.gamer{
+	width: 100%;
+}
+.gamer-name{
+	width: 100%;
+	left: 10%;
+	bottom: 40%;
+}
+
+.gamer_info{
+	display: none;
+}
+.actor-name{
+	width: 100%;
+	left: 10%;
+	bottom: 40%;
+}
+.ms{
+	font-size: 100px;
+}
+
+.ds{
+	font-size: 60px;
+}
+
+.gs{
+	font-size: 4.5em;
+}
+
+.as{
+	font-size: 80px;
+}
+
+form{
+	width: 80%;
+	height: 100%;
+}
+h1{
+	font-size: 16px;
+	line-height: 40px;
+}
+input{
+	height: 30px;
+	color: white;
+}
+.submit{
+	color: white;
+}
+
+span.line-lt{
+	top: 10px;
+	left: 5%;
+	height: 15px;
+    width: 50px;
+}
+span.line-rt{
+	top: 10px;
+	left: 75%;
+	height: 15px;
+    width: 50px;
+}
+#ad{
+	width: 100%;
+	height: 100%;
+	background-position: 70%;
+	margin: 0;
+}
+#close-btn{
+	width: 50px;
+	height: 50px;
+}
+#ad > span{
+	left: 35%;
+}
 }
